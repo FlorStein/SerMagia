@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ser Magia · Tarot</title>
+    <meta name="description" content="Acompañamiento amoroso con Tarot, Akasha y sanación." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      html, body { scroll-behavior: smooth; }
+      .font-serif { font-family: 'Playfair Display', serif; }
+      .font-sans { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+      /* keyframes: riseFade & glowTitle */
+      @keyframes riseFade { from { opacity:0; transform: translateY(12px);} to { opacity:1; transform: translateY(0);} }
+      @keyframes glowTitle { 0% { text-shadow: none; } 100% { text-shadow: 0 0 20px rgba(242,139,102,.35);} }
+
+      /* Clase existente para texto con New Rocker */
+      .new-rocker-regular {
+        font-family: "New Rocker", system-ui, cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      /* Aplicar New Rocker a todos los títulos por defecto */
+      h1, h2, h3, h4, h5, h6 {
+        font-family: "New Rocker", system-ui, cursive;
+        font-weight: 400;
+        margin: 0;
+      }
+
+      /* Blanco + brillo violeta para títulos */
+      .title-white { color:#fff !important; }
+      .glow-violet { animation: violetGlow 2.2s ease-in-out infinite; }
+      @keyframes violetGlow {
+        0%   { text-shadow:0 0 0 rgba(90,50,181,0); }
+        50%  { text-shadow:0 0 18px rgb(89, 50, 181); }
+        100% { text-shadow:0 0 0 rgba(90,50,181,0); }
+      }
+
+    
+      /* Fade-in para elementos al entrar en viewport */
+      .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+      .reveal.in { opacity: 1; transform: none; }
+
+  /* Efecto aura con colores lilas, violetas y amarillos */
+  .aura-effect {
+    position: relative;
+    animation: auraGlow 4s ease-in-out infinite;
+  }
+  
+  @keyframes auraGlow {
+    0%, 100% {
+      box-shadow: 
+        0 0 20px rgba(138, 11, 210, 0.4),
+        0 0 40px rgba(138, 11, 210, 0.3),
+        0 0 60px rgba(138, 11, 210, 0.2),
+        0 0 80px rgba(217, 128, 249, 0.1);
+    }
+    25% {
+      box-shadow: 
+        0 0 25px rgba(217, 128, 249, 0.5),
+        0 0 50px rgba(217, 128, 249, 0.4),
+        0 0 75px rgba(138, 11, 210, 0.3),
+        0 0 100px rgba(255, 215, 0, 0.2);
+    }
+    50% {
+      box-shadow: 
+        0 0 30px rgba(255, 215, 0, 0.4),
+        0 0 60px rgba(217, 128, 249, 0.4),
+        0 0 90px rgba(138, 11, 210, 0.3),
+        0 0 120px rgba(217, 128, 249, 0.2);
+    }
+    75% {
+      box-shadow: 
+        0 0 25px rgba(138, 11, 210, 0.5),
+        0 0 50px rgba(255, 215, 0, 0.3),
+        0 0 75px rgba(217, 128, 249, 0.3),
+        0 0 100px rgba(138, 11, 210, 0.2);
+    }
+  }
+
+  /* Navbar: color blanco por defecto para enlaces */
+  .site-header a { color: #fff; }
+  .site-header a:hover { color: #d980f9; }
+
+  /* Navbar: glassmorfismo violeta cuando #servicios está visible */
+  /* Restaurar fondo púrpura translúcido con blur y forzar texto blanco */
+  body.services-in .site-header {
+    background: rgba(90,50,181,0.18) !important; /* violeta translúcido similar a bg-[#5A32B5]/20 */
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(90,50,181,0.18);
+    box-shadow: 0 6px 30px rgba(90,50,181,0.06);
+  }
+  /* Forzar color blanco para títulos/enlaces dentro del header cuando se activa services-in */
+  body.services-in .site-header .title-white,
+  body.services-in .site-header a,
+  body.services-in .site-header .text-white { color: #fff !important; }
+  /* Mantener botones visibles (background púrpura con texto blanco) */
+  body.services-in .site-header a.rounded-full,
+  body.services-in .site-header a[href*="wa.link"] { color: #fff !important; }
+    
+    </style>
+  </head>
+  <body class="font-sans bg-[#FFF4EA] text-[#2B1E1A] selection:bg-[#F6C6CF] selection:text-[#2B1E1A]">
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="./app.jsx"></script>
+  
+  <script>
+    (function(){
+      // Fade-in for services cards
+      var cards = [].slice.call(document.querySelectorAll('#servicios .reveal'));
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('in'); });
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+        cards.forEach(function(el){ io.observe(el); });
+      } else {
+        cards.forEach(function(el){ el.classList.add('in'); });
+      }
+
+      // Toggle body.services-in when the servicios section is in view
+      var servicios = document.querySelector('#servicios');
+      if (servicios && 'IntersectionObserver' in window) {
+        var io2 = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            if (e.isIntersecting) { document.body.classList.add('services-in'); }
+            else { document.body.classList.remove('services-in'); }
+          });
+        }, { rootMargin: '0px', threshold: 0.2 });
+        io2.observe(servicios);
+      }
+    })();
+  </script>
+
+  <script>
+    (function(){
+      function activateServicesFade(){
+        var cards = [].slice.call(document.querySelectorAll('#servicios .reveal'));
+        cards.forEach(function(el){ el.classList.add('in'); });
+        document.body.classList.add('services-in');
+      }
+
+      // On scroll into view (keeps existing IntersectionObserver behavior if present)
+      if (!window.__servIO) {
+        var servicios = document.querySelector('#servicios');
+        if (servicios && 'IntersectionObserver' in window) {
+          window.__servIO = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+              if (e.isIntersecting) activateServicesFade();
+            });
+          }, { rootMargin: '0px', threshold: 0.2 });
+          window.__servIO.observe(servicios);
+        }
+      }
+
+      // On nav click to #servicios
+      var navLinks = [].slice.call(document.querySelectorAll('a[href="#servicios"]'));
+      navLinks.forEach(function(a){
+        a.addEventListener('click', function(){
+          // give the scroll time to occur then activate
+          setTimeout(activateServicesFade, 300);
+        });
+      });
+
+      // On hash navigation
+      window.addEventListener('hashchange', function(){
+        if (location.hash === '#servicios') setTimeout(activateServicesFade, 100);
+      });
+
+      // If page loads directly at #servicios
+      if (location.hash === '#servicios') setTimeout(activateServicesFade, 200);
+    })();
+  </script>
+</body>
+</html>
