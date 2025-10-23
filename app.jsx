@@ -1,4 +1,4 @@
-/* Ser Magia · Landing v1.1 (restored full + hero fixes) */
+/* Ser Magia · Landing v1.2 (optimized) */
 const links = [
   { href: "#inicio", label: "Inicio" },
   { href: "#servicios", label: "Servicios" },
@@ -30,18 +30,134 @@ const ASSETS = {
   abstractRosaVerde: "./assets/abstract-rosa-verde.jpg",
 };
 
+// Datos de servicios
+const SERVICIOS = [
+  {
+    title: "Tarot & Vinito",
+    description: "Encuentros íntimos para compartir una lectura de Tarot acompañada de una copa de vino.",
+    bgImage: ASSETS.tarotyvino
+  },
+  {
+    title: "Pack",
+    description: "Paquetes especiales para procesos y seguimientos con varios encuentros.",
+    bgImage: ASSETS.packImg
+  },
+  {
+    title: "Lecturas",
+    description: "Lecturas individuales de Tarot enfocadas en claridad, dirección y bienestar.",
+    bgImage: ASSETS.cielo
+  }
+];
+
+// Datos de pack
+const PACK_COMPONENTS = [
+  {n:'Akasha',d:'Apertura de Registros Akáshicos. Conexión con la biblioteca del alma.'},
+  {n:'Tarot',d:'Exploración simbólica para claridad y decisiones conscientes.'},
+  {n:'Constelaciones',d:'Revelar y sanar patrones familiares/sistémicos con apoyo de cartas.'},
+  {n:'Sanación',d:'Liberación de bloqueos emocionales y energéticos; equilibrio interno.'},
+  {n:'Plan de acción',d:'Hoja de ruta personalizada con pasos concretos.'},
+];
+
+// Datos de lecturas
+const LECTURAS = [
+  {t:'Tarot Genealógico',d:`En este espacio mágico y creativo, te invito a sumergirte en un viaje profundo
+hacia tu árbol genealógico. Es un encuentro transformador donde
+exploraremos la poderosa información ancestral que reside en vos y que te
+permitirá modificar, transformar y sanar aspectos de tu vida.`, precio:'$22.000', dur:'90 min'},
+  {t:'Tarot Anual',d:`En este enriquecedor y nutritivo encuentro, te ofreceré una oportunidad única
+para descubrir la energía disponible para ti y lo que el futuro cercano tiene
+reservado. Trabajaremos con las casas zodiacales, abordando todos los
+aspectos fundamentales de tu vida: tu energía actual, tus oportunidades
+financieras, recursos, comunicación, familia, proyectos, salud, trabajo,
+pareja, sexualidad, misión en la vida, profesión, vínculos e inconsciente.`, precio:'$20.000', dur:'75 min'},
+  {t:'Tarot Akáshico',d:`Combina dos prácticas transformadoras para brindarte una experiencia
+única de empoderamiento y crecimiento personal.
+El Tarot actúa como una valiosa herramienta que nos revela información
+sobre tu energía actual, permitiéndote comprender mejor tu presente y las
+oportunidades que se presentan en tu camino.`, precio:'$24.000', dur:'90 min'},
+];
+
+// Datos de agenda
+const AGENDA_EVENTOS = [
+  {f:'Sáb 16 Nov · 18:00', t:'Vinito y Tarot (Microcentro)', cupos:'Quedan 6'},
+  {f:'Vie 29 Nov · 19:00', t:'Vinito y Tarot a domicilio', cupos:'Cupos 10–30'},
+  {f:'Sáb 14 Dic · 10:00', t:'Formación Tarot – Módulo 1', cupos:'Abierta inscripción'},
+];
+
+// Componente memoizado para tarjeta de servicio
+const ServiceCard = React.memo(({ title, description, bgImage }) => (
+  <div
+    className="rounded-2xl overflow-hidden shadow-sm bg-center bg-cover text-white min-h-[420px] md:min-h-[520px]"
+    style={{ backgroundImage: `url(${bgImage})` }}
+  >
+    <div className="bg-black/35 p-6 backdrop-blur-[1px] h-full">
+      <h3 className="new-rocker-regular text-[1.56rem] mb-2">{title}</h3>
+      <p className="text-white/90 text-[1.25rem]">{description}</p>
+      <a 
+        href="https://wa.link/ylh91z" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="inline-block mt-4 rounded-full bg-[#5A32B5] text-white px-5 py-2 text-sm hover:opacity-90 transition"
+      >
+        Reservar
+      </a>
+    </div>
+  </div>
+));
+
+// Componente memoizado para tarjeta de lectura
+const LecturaCard = React.memo(({ t, d, precio, dur }) => (
+  <article className="rounded-3xl border bg-white/65 shadow-sm p-6 relative">
+    <div className="pb-12">
+      <p className="text-xs font-bold uppercase tracking-wide text-[#350352] mb-2">Encuentro</p>
+      <h3 className="new-rocker-regular title-white glow-violet text-3xl md:text-4xl mb-1 text-[#8a0bd2]">{t}</h3>
+      <p className="text-xs md:text-sm text-[#350352]/80 font-semibold">{d}</p>
+    </div>
+    <p className="text-lg font-bold text-[#350352]/70 absolute left-4 bottom-4">{precio} · {dur}</p>
+    <a href="https://wa.link/ylh91z" className="rounded-full border px-4 py-2 text-sm absolute right-4 bottom-4 font-bold">
+      Solicitar turnos
+    </a>
+  </article>
+));
+
+// Componente memoizado para evento de agenda
+const EventoCard = React.memo(({ f, t, cupos }) => (
+  <div className="rounded-3xl bg-white/45 backdrop-blur p-6 border shadow-sm">
+    <p className="text-sm text-[#5c007d]/70">{f}</p>
+    <p className="new-rocker-regular title-white glow-violet text-xl">{t}</p>
+    <p className="text-xs text-[#5c007d]/70 mb-4">{cupos}</p>
+    <div className="flex gap-3">
+      <a href="https://wa.link/ylh91z" className="rounded-full bg-[#8a0bd2] text-white px-4 py-2 text-sm">Reservar</a>
+      <a href="#contacto" className="rounded-full border px-4 py-2 text-sm">Consultar</a>
+    </div>
+  </div>
+));
+
 function Navbar() {
   const [open, setOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
+  
   React.useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    window.addEventListener("scroll", onScroll);
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 12);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  
+  const closeMenu = React.useCallback(() => setOpen(false), []);
+  
   return (
   <header className={`site-header fixed top-0 left-0 right-0 z-50 transition ${scrolled ? 'shadow-sm' : ''} bg-[#5A32B5]/20 backdrop-blur-2xl border-b border-[#5A32B5]/20`}>
       {/* Nav color dinámica: blanco arriba, violeta al scrollear */}
-  <div className={`mx-auto max-w-6xl px-4 py-4 flex items-center justify-between`}>
+  <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
           <a href="#inicio" className="new-rocker-regular title-white glow-violet text-xl tracking-wide">
           Ser<span className="text-[#d980f9]">Magia</span>
         </a>
@@ -71,11 +187,11 @@ function Navbar() {
         <div className="md:hidden border-t bg-[#5A32B5]/20 backdrop-blur-2xl border-[#5A32B5]/10">
           <div className="px-4 py-3 flex flex-col gap-3">
             {links.map((l) => (
-              <a key={l.href} href={l.href} className="py-2 text-sm" onClick={() => setOpen(false)}>
+              <a key={l.href} href={l.href} className="py-2 text-sm" onClick={closeMenu}>
                 {l.label}
               </a>
             ))}
-            <a href="https://wa.link/ylh91z" className="rounded-full bg-[#8a0bd2] text-white px-4 py-2 text-center text-sm" onClick={() => setOpen(false)}>
+            <a href="https://wa.link/ylh91z" className="rounded-full bg-[#8a0bd2] text-white px-4 py-2 text-center text-sm" onClick={closeMenu}>
               Reservar por WhatsApp
             </a>
           </div>
@@ -86,25 +202,59 @@ function Navbar() {
 }
 
 function ContactForm(){
-  const [nombre,setNombre] = React.useState("");
-  const [email,setEmail] = React.useState("");
-  const [asunto,setAsunto] = React.useState("");
-  const [mensaje,setMensaje] = React.useState("");
-  const handleSubmit = (e)=>{
+  const [formData, setFormData] = React.useState({
+    nombre: "",
+    email: "",
+    asunto: "",
+    mensaje: ""
+  });
+  
+  const handleChange = React.useCallback((e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  }, []);
+  
+  const handleSubmit = React.useCallback((e) => {
     e.preventDefault();
-    const to = "hola@sermagia.tarot"; // <-- reemplazar por el final
-    const subject = encodeURIComponent(`${asunto || 'Consulta desde la web'}`);
-    const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\n\n${mensaje}`);
+    const to = "hola@sermagia.tarot";
+    const subject = encodeURIComponent(formData.asunto || 'Consulta desde la web');
+    const body = encodeURIComponent(`Nombre: ${formData.nombre}\nEmail: ${formData.email}\n\n${formData.mensaje}`);
     window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-  };
+  }, [formData]);
+  
   return (
     <form onSubmit={handleSubmit} className="grid gap-4">
       <div className="grid md:grid-cols-2 gap-4">
-        <input value={nombre} onChange={e=>setNombre(e.target.value)} className="rounded-xl border px-4 py-3 bg-[#000]" placeholder="Nombre"/>
-        <input value={email} onChange={e=>setEmail(e.target.value)} className="rounded-xl border px-4 py-3 bg-[#000]" placeholder="Email"/>
+        <input 
+          name="nombre"
+          value={formData.nombre} 
+          onChange={handleChange} 
+          className="rounded-xl border px-4 py-3 bg-[#000]" 
+          placeholder="Nombre"
+        />
+        <input 
+          name="email"
+          value={formData.email} 
+          onChange={handleChange} 
+          className="rounded-xl border px-4 py-3 bg-[#000]" 
+          placeholder="Email"
+        />
       </div>
-      <input value={asunto} onChange={e=>setAsunto(e.target.value)} className="rounded-xl border px-4 py-3 bg-[#000]" placeholder="Asunto"/>
-      <textarea value={mensaje} onChange={e=>setMensaje(e.target.value)} className="rounded-xl border px-4 py-3 bg-[#000]" rows={4} placeholder="Contame en qué te puedo acompañar"/>
+      <input 
+        name="asunto"
+        value={formData.asunto} 
+        onChange={handleChange} 
+        className="rounded-xl border px-4 py-3 bg-[#000]" 
+        placeholder="Asunto"
+      />
+      <textarea 
+        name="mensaje"
+        value={formData.mensaje} 
+        onChange={handleChange} 
+        className="rounded-xl border px-4 py-3 bg-[#000]" 
+        rows={4} 
+        placeholder="Contame en qué te puedo acompañar"
+      />
       <div className="flex gap-3">
   <button type="submit" className="rounded-full bg-[#8a0bd2] text-white px-5 py-3 text-sm w-max">Enviar</button>
         <a href="https://wa.link/ylh91z" className="rounded-full border px-5 py-3 text-sm">WhatsApp</a>
@@ -160,50 +310,10 @@ function App(){
     <h2 className="new-rocker-regular text-[#ffffff] text-[2.5rem] md:text-[4rem] mb-8">
   Servicios
 </h2>
-
-
     <div className="grid md:grid-cols-3 gap-6">
-      {/* Tarot & Vinito */}
-      <div
-        className="rounded-2xl overflow-hidden shadow-sm bg-center bg-cover text-white min-h-[420px] md:min-h-[520px]"
-        style={{ backgroundImage: `url(${ASSETS.tarotyvino})` }}
-      >
-        <div className="bg-black/35 p-6 backdrop-blur-[1px] h-full">
-          <h3 className="new-rocker-regular text-[1.56rem] mb-2">Tarot & Vinito</h3>
-          <p className="text-white/90 text-[1.25rem]">
-            Encuentros íntimos para compartir una lectura de Tarot acompañada de una copa de vino.
-          </p>
-            <a href="https://wa.link/ylh91z" target="_blank" rel="noopener noreferrer" className="inline-block mt-4 rounded-full bg-[#5A32B5] text-white px-5 py-2 text-sm hover:opacity-90 transition">Reservar</a>
-        </div>
-      </div>
-
-      {/* Pack */}
-      <div
-        className="rounded-2xl overflow-hidden shadow-sm bg-center bg-cover text-white min-h-[420px] md:min-h-[520px]"
-        style={{ backgroundImage: `url(${ASSETS.packImg})` }}
-      >
-        <div className="bg-black/35 p-6 backdrop-blur-[1px] h-full">
-          <h3 className="new-rocker-regular text-[1.56rem] mb-2">Pack</h3>
-          <p className="text-white/90 text-[1.25rem]">
-            Paquetes especiales para procesos y seguimientos con varios encuentros.
-          </p>
-            <a href="https://wa.link/ylh91z" target="_blank" rel="noopener noreferrer" className="inline-block mt-4 rounded-full bg-[#5A32B5] text-white px-5 py-2 text-sm hover:opacity-90 transition">Reservar</a>
-        </div>
-      </div>
-
-      {/* Lecturas */}
-      <div
-        className="rounded-2xl overflow-hidden shadow-sm bg-center bg-cover text-white min-h-[420px] md:min-h-[520px]"
-        style={{ backgroundImage: `url(${ASSETS.cielo})` }}
-      >
-        <div className="bg-black/35 p-6 backdrop-blur-[1px] h-full">
-          <h3 className="new-rocker-regular text-[1.56rem] mb-2">Lecturas</h3>
-          <p className="text-white/90 text-[1.25rem]">
-            Lecturas individuales de Tarot enfocadas en claridad, dirección y bienestar.
-          </p>
-            <a href="https://wa.link/ylh91z" target="_blank" rel="noopener noreferrer" className="inline-block mt-4 rounded-full bg-[#5A32B5] text-white px-5 py-2 text-sm hover:opacity-90 transition">Reservar</a>
-        </div>
-      </div>
+      {SERVICIOS.map((servicio, i) => (
+        <ServiceCard key={i} {...servicio} />
+      ))}
     </div>
   </div>
 </section>
@@ -234,13 +344,7 @@ function App(){
             <h2 className="new-rocker-regular title-white glow-violet text-3xl mb-2">El Pack · Un viaje de autoconocimiento</h2>
             <p className="text-sm text-[#d980f9]/80 mb-6 max-w-prose">Dirigido a almas inquietas que desean transformación positiva. Metodología en 5 componentes:</p>
             <div className="grid md:grid-cols-5 gap-4 text-sm">
-              {[
-                {n:'Akasha',d:'Apertura de Registros Akáshicos. Conexión con la biblioteca del alma.'},
-                {n:'Tarot',d:'Exploración simbólica para claridad y decisiones conscientes.'},
-                {n:'Constelaciones',d:'Revelar y sanar patrones familiares/sistémicos con apoyo de cartas.'},
-                {n:'Sanación',d:'Liberación de bloqueos emocionales y energéticos; equilibrio interno.'},
-                {n:'Plan de acción',d:'Hoja de ruta personalizada con pasos concretos.'},
-              ].map((k,i)=>(
+              {PACK_COMPONENTS.map((k,i)=>(
                 <div key={i} className="rounded-2xl border bg-white p-4">
                   <p className="font-medium mb-1">{k.n}</p>
                   <p className="text-[#d980f9]/80">{k.d}</p>
@@ -256,32 +360,8 @@ function App(){
     <div className="mx-auto max-w-6xl px-4 flex-1">
           <h2 className="new-rocker-regular title-white glow-violet text-6xl mb-6">Lecturas de Tarot</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {t:'Tarot Genealógico',d:`En este espacio mágico y creativo, te invito a sumergirte en un viaje profundo
-hacia tu árbol genealógico. Es un encuentro transformador donde
-exploraremos la poderosa información ancestral que reside en vos y que te
-permitirá modificar, transformar y sanar aspectos de tu vida.`, precio:'$22.000', dur:'90 min'},
-              {t:'Tarot Anual',d:`En este enriquecedor y nutritivo encuentro, te ofreceré una oportunidad única
-para descubrir la energía disponible para ti y lo que el futuro cercano tiene
-reservado. Trabajaremos con las casas zodiacales, abordando todos los
-aspectos fundamentales de tu vida: tu energía actual, tus oportunidades
-financieras, recursos, comunicación, familia, proyectos, salud, trabajo,
-pareja, sexualidad, misión en la vida, profesión, vínculos e inconsciente.`, precio:'$20.000', dur:'75 min'},
-              {t:'Tarot Akáshico',d:`Combina dos prácticas transformadoras para brindarte una experiencia
-única de empoderamiento y crecimiento personal.
-El Tarot actúa como una valiosa herramienta que nos revela información
-sobre tu energía actual, permitiéndote comprender mejor tu presente y las
-oportunidades que se presentan en tu camino.`, precio:'$24.000', dur:'90 min'},
-            ].map((c,i)=>(
-              <article key={i} className="rounded-3xl border bg-white/65 shadow-sm p-6 relative">
-                <div className="pb-12">
-                  <p className="text-xs font-bold uppercase tracking-wide text-[#350352] mb-2">Encuentro</p>
-                  <h3 className="new-rocker-regular title-white glow-violet text-3xl md:text-4xl mb-1 text-[#8a0bd2]">{c.t}</h3>
-                  <p className="text-xs md:text-sm text-[#350352]/80 font-semibold">{c.d}</p>
-                </div>
-                <p className="text-lg font-bold text-[#350352]/70 absolute left-4 bottom-4">{c.precio} · {c.dur}</p>
-                <a href="https://wa.link/ylh91z" className="rounded-full border px-4 py-2 text-sm absolute right-4 bottom-4 font-bold">Solicitar turnos</a>
-              </article>
+            {LECTURAS.map((c,i)=>(
+              <LecturaCard key={i} {...c} />
             ))}
           </div>
         </div>
@@ -320,20 +400,8 @@ oportunidades que se presentan en tu camino.`, precio:'$24.000', dur:'90 min'},
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="new-rocker-regular title-white glow-violet text-5xl mb-6 text-center">Próximas fechas</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {f:'Sáb 16 Nov · 18:00', t:'Vinito y Tarot (Microcentro)', cupos:'Quedan 6'},
-              {f:'Vie 29 Nov · 19:00', t:'Vinito y Tarot a domicilio', cupos:'Cupos 10–30'},
-              {f:'Sáb 14 Dic · 10:00', t:'Formación Tarot – Módulo 1', cupos:'Abierta inscripción'},
-            ].map((e,i)=>(
-              <div key={i} className="rounded-3xl bg-white/45 backdrop-blur p-6 border shadow-sm">
-                <p className="text-sm text-[#5c007d]/70">{e.f}</p>
-                <p className="new-rocker-regular title-white glow-violet text-xl">{e.t}</p>
-                <p className="text-xs text-[#5c007d]/70 mb-4">{e.cupos}</p>
-                <div className="flex gap-3">
-                  <a href="https://wa.link/ylh91z" className="rounded-full bg-[#8a0bd2] text-white px-4 py-2 text-sm">Reservar</a>
-                  <a href="#contacto" className="rounded-full border px-4 py-2 text-sm">Consultar</a>
-                </div>
-              </div>
+            {AGENDA_EVENTOS.map((e,i)=>(
+              <EventoCard key={i} {...e} />
             ))}
           </div>
         </div>
