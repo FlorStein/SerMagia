@@ -525,7 +525,7 @@ function App() {
     href: "mailto:hola@sermagia.tarot",
     className: "rounded-full border px-5 py-3 text-sm"
   }, "Escribirme por mail")), /*#__PURE__*/React.createElement(ContactForm, null)))), /*#__PURE__*/React.createElement("footer", {
-    className: "pb-10 pt-6 border-t bg-[#8a0bd2] text-white border-[#8a0bd2]/20"
+    className: "py-6 border-t bg-[#8a0bd2] text-white border-[#8a0bd2]/20"
   }, /*#__PURE__*/React.createElement("div", {
     className: "mx-auto max-w-6xl px-4 flex flex-col md:flex-row items-center justify-between gap-6"
   }, /*#__PURE__*/React.createElement("p", {
