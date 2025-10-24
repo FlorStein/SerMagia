@@ -13,9 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Preload critical scripts para reducir render blocking -->
-    <link rel="preload" href="https://unpkg.com/react@18/umd/react.production.min.js" as="script">
-    <link rel="preload" href="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" as="script">
-    <link rel="preload" href="https://unpkg.com/@babel/standalone/babel.min.js" as="script">
+    <link rel="preload" href="https://unpkg.com/react@18/umd/react.production.min.js" as="script" crossorigin>
+    <link rel="preload" href="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" as="script" crossorigin>
+    <link rel="preload" href="./app.js" as="script">
     
     <!-- Preload imagen LCP para descubrimiento inmediato -->
     <link rel="preload" href="./assets/background-tarot.webp" as="image" fetchpriority="high">
@@ -133,21 +133,12 @@
     <!-- React y dependencias con defer para no bloquear render inicial -->
     <script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <!-- Babel solo si es necesario (desarrollo) - en producción deberías usar build -->
-    <script defer src="https://unpkg.com/@babel/standalone@7.28.5/babel.min.js"></script>
     
-    <!-- Cargar Tailwind de forma asíncrona -->
-    <script>
-      (function() {
-        var script = document.createElement('script');
-        script.src = 'https://cdn.tailwindcss.com';
-        script.defer = true;
-        document.head.appendChild(script);
-      })();
-    </script>
+    <!-- Tailwind CDN - Para producción considera usar Tailwind CLI -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- App principal con defer -->
-    <script defer type="text/babel" src="./app.jsx"></script>
+    <!-- App compilado (sin Babel en el navegador) -->
+    <script defer src="./app.js"></script>
   
   <!-- Scripts de animación y efectos -->
   <script>
