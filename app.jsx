@@ -14,7 +14,6 @@ const ASSETS = {
   cielo: "./assets/cielo.webp",
   packImg: "./assets/pack.webp",
   tarotyvino: "./assets/tarotyvino.webp",
-  emperatriz: "./assets/emperatriz.jpg",
   heroSun: "./assets/cartas.webp",
   heroBg: "./assets/background-tarot.webp",
   backgroundTarotLila: "./assets/background-tarot-lila.webp",
@@ -22,10 +21,6 @@ const ASSETS = {
   estrellaMujer: "./assets/extrella-galaxia.webp",
   lavandaCampo: "./assets/lavanda-campo.webp",
   manosLuna: "./assets/manos-luna.webp",
-  patronCuadros: "./assets/patron-cuadros-verde-rosa.jpeg",
-  patronTejido: "./assets/patron-tejido-rosa-verde.jpeg",
-  damero: "./assets/damero-verde-rosa.jpeg",
-  abstractRosaVerde: "./assets/abstract-rosa-verde.jpg",
 };
 
 // Datos de servicios
@@ -283,7 +278,14 @@ function App(){
           </div>
           <div className="relative">
             <div className="rounded-2xl overflow-hidden  flex items-center justify-center p-3 h-[60vh] md:h-[66vh]">
-              <img src={ASSETS.heroSun} alt="Carta El Sol" className="max-h-full max-w-full object-contain" />
+              <img 
+                src={ASSETS.heroSun} 
+                alt="Carta El Sol" 
+                className="max-h-full max-w-full object-contain"
+                width="600"
+                height="900"
+                fetchpriority="high"
+              />
             </div>
             {/* <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow p-4 w-48">
               <p className="text-xs text-[#d980f9]/70">Próximo encuentro</p>
@@ -354,7 +356,12 @@ function App(){
       </section>
 
       {/* LECTURAS */}
-  <section id="lecturas" className="py-8 md:py-16 min-h-[80svh] md:min-h-[100svh] flex items-center justify-center" style={{backgroundImage:`url(${ASSETS.lavandaCampo})`, backgroundSize:'cover', backgroundPosition:'center', backgroundAttachment:'fixed'}}>
+  <section 
+    id="lecturas" 
+    className="py-8 md:py-16 min-h-[80svh] md:min-h-[100svh] flex items-center justify-center lazy-bg" 
+    data-bg={ASSETS.lavandaCampo}
+    style={{backgroundSize:'cover', backgroundPosition:'center', backgroundAttachment:'fixed'}}
+  >
     <div className="mx-auto max-w-6xl px-4 flex-1">
           <h2 className="new-rocker-regular title-white glow-violet text-6xl mb-6">Lecturas de Tarot</h2>
           <div className="grid md:grid-cols-3 gap-6">
@@ -380,13 +387,12 @@ function App(){
             <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-sm flex items-center justify-center bg-black/5 relative">
               <div className="absolute inset-0 rounded-3xl pointer-events-none z-20" style={{boxShadow: 'inset 0 0 60px 28px rgba(0,0,0,0.8)'}} />
               <video
-                src="./assets/formacion.mp4"
+                data-src="./assets/formacion.mp4"
                 poster={ASSETS.abstractRosaVerde}
                 muted
-                autoPlay
                 playsInline
                 loop
-                className="w-full h-full object-cover relative z-0"
+                className="lazy-video w-full h-full object-cover relative z-0"
               />
             </div>
           </div>
@@ -394,7 +400,12 @@ function App(){
       </section>
 
       {/* AGENDA */}
-      <section id="agenda" className="py-8 md:py-16" style={{backgroundImage:`url(${ASSETS.cieloEspejo})`, backgroundAttachment:'fixed', backgroundPosition:'center', backgroundSize:'cover'}}>
+      <section 
+        id="agenda" 
+        className="py-8 md:py-16 lazy-bg" 
+        data-bg={ASSETS.cieloEspejo}
+        style={{backgroundAttachment:'fixed', backgroundPosition:'center', backgroundSize:'cover'}}
+      >
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="new-rocker-regular title-white glow-violet text-5xl mb-6 text-center">Próximas fechas</h2>
           <div className="grid md:grid-cols-3 gap-6">
@@ -406,7 +417,12 @@ function App(){
       </section>
 
       {/* CONTACTO */}
-      <section id="contacto" className="py-12 md:py-20" style={{backgroundImage:`url(${ASSETS.cieloEspejo})`, backgroundAttachment:'fixed', backgroundPosition:'center', backgroundSize:'cover'}}>
+      <section 
+        id="contacto" 
+        className="py-12 md:py-20 lazy-bg" 
+        data-bg={ASSETS.cieloEspejo}
+        style={{backgroundAttachment:'fixed', backgroundPosition:'center', backgroundSize:'cover'}}
+      >
         <div className="mx-auto max-w-2xl px-4">
           <div className="rounded-3xl border bg-white/45 backdrop-blur p-8 md:p-10 shadow-sm">
             <h2 className="new-rocker-regular title-white glow-violet text-3xl mb-2">Turnos & Contacto</h2>
