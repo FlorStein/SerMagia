@@ -102,7 +102,7 @@ oportunidades que se presentan en tu camino.`,
 }];
 
 // Datos de agenda
-const AGENDA_EVENTOS = [{
+const AGENDA_EVENTOS = window.AGENDA_EVENTOS && window.AGENDA_EVENTOS.length ? window.AGENDA_EVENTOS : [{
   f: 'Sáb 16 Nov · 18:00',
   t: 'Vinito y Tarot (Microcentro)',
   cupos: 'Quedan 6'
@@ -314,6 +314,17 @@ function ContactForm() {
   }, "WhatsApp")));
 }
 function App() {
+  // Estado para forzar re-render cuando se actualice la agenda
+  const [agendaVersion, setAgendaVersion] = React.useState(0);
+  React.useEffect(() => {
+    // Escuchar evento de actualización de agenda
+    const handleAgendaUpdate = () => {
+      console.log('[App] 🔄 Agenda actualizada, re-renderizando...');
+      setAgendaVersion(v => v + 1);
+    };
+    window.addEventListener('agendaUpdated', handleAgendaUpdate);
+    return () => window.removeEventListener('agendaUpdated', handleAgendaUpdate);
+  }, []);
   return /*#__PURE__*/React.createElement("div", {
     className: "min-h-screen"
   }, /*#__PURE__*/React.createElement(Navbar, null), /*#__PURE__*/React.createElement("section", {
@@ -497,7 +508,7 @@ function App() {
     className: "new-rocker-regular title-white glow-violet text-5xl mb-6 text-center"
   }, "Pr\xF3ximas fechas"), /*#__PURE__*/React.createElement("div", {
     className: "grid md:grid-cols-3 gap-6"
-  }, AGENDA_EVENTOS.map((e, i) => /*#__PURE__*/React.createElement(EventoCard, _extends({
+  }, (window.AGENDA_EVENTOS || AGENDA_EVENTOS).map((e, i) => /*#__PURE__*/React.createElement(EventoCard, _extends({
     key: i
   }, e)))))), /*#__PURE__*/React.createElement("section", {
     id: "contacto",
@@ -540,5 +551,33 @@ function App() {
     className: "text-white hover:text-[#f4dbff]"
   }, "Pol\xEDtica de privacidad")))));
 }
+
+// Esperar a que termine la carga de agenda antes de renderizar
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(/*#__PURE__*/React.createElement(App, null));
+
+// Si existe la promesa del loader, esperar; sino renderizar inmediatamente
+if (window.AGENDA_LOADER_PROMISE) {
+  window.AGENDA_LOADER_PROMISE.finally(function() {
+    // Recomputar AGENDA_EVENTOS después de que cargue (o falle)
+    const AGENDA_EVENTOS_FINAL = window.AGENDA_EVENTOS && window.AGENDA_EVENTOS.length ? window.AGENDA_EVENTOS : [{
+      f: 'Sáb 16 Nov · 18:00',
+      t: 'Vinito y Tarot (Microcentro)',
+      cupos: 'Quedan 6'
+    }, {
+      f: 'Vie 29 Nov · 19:00',
+      t: 'Vinito y Tarot a domicilio',
+      cupos: 'Cupos 10–30'
+    }, {
+      f: 'Sáb 14 Dic · 10:00',
+      t: 'Formación Tarot – Módulo 1',
+      cupos: 'Abierta inscripción'
+    }];
+    
+    // Actualizar variable global para que el componente use la correcta
+    window.AGENDA_EVENTOS = AGENDA_EVENTOS_FINAL;
+    
+    root.render(/*#__PURE__*/React.createElement(App, null));
+  });
+} else {
+  root.render(/*#__PURE__*/React.createElement(App, null));
+}

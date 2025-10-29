@@ -259,6 +259,20 @@ function ContactForm(){
 
 
 function App(){
+  // Estado para forzar re-render cuando se actualice la agenda
+  const [agendaVersion, setAgendaVersion] = React.useState(0);
+  
+  React.useEffect(() => {
+    // Escuchar evento de actualización de agenda
+    const handleAgendaUpdate = () => {
+      console.log('[App] 🔄 Agenda actualizada, re-renderizando...');
+      setAgendaVersion(v => v + 1);
+    };
+    
+    window.addEventListener('agendaUpdated', handleAgendaUpdate);
+    return () => window.removeEventListener('agendaUpdated', handleAgendaUpdate);
+  }, []);
+  
   return (
     <div className="min-h-screen">
       <Navbar/>
