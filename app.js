@@ -282,25 +282,25 @@ function ContactForm() {
     name: "nombre",
     value: formData.nombre,
     onChange: handleChange,
-    className: "rounded-xl border px-4 py-3 bg-[#000]",
+    className: "rounded-xl border px-4 py-3 bg-[#000] text-white placeholder:text-[#d980f9]/60",
     placeholder: "Nombre"
   }), /*#__PURE__*/React.createElement("input", {
     name: "email",
     value: formData.email,
     onChange: handleChange,
-    className: "rounded-xl border px-4 py-3 bg-[#000]",
+    className: "rounded-xl border px-4 py-3 bg-[#000] text-white placeholder:text-[#d980f9]/60",
     placeholder: "Email"
   })), /*#__PURE__*/React.createElement("input", {
     name: "asunto",
     value: formData.asunto,
     onChange: handleChange,
-    className: "rounded-xl border px-4 py-3 bg-[#000]",
+    className: "rounded-xl border px-4 py-3 bg-[#000] text-white placeholder:text-[#d980f9]/60",
     placeholder: "Asunto"
   }), /*#__PURE__*/React.createElement("textarea", {
     name: "mensaje",
     value: formData.mensaje,
     onChange: handleChange,
-    className: "rounded-xl border px-4 py-3 bg-[#000]",
+    className: "rounded-xl border px-4 py-3 bg-[#000] text-white placeholder:text-[#d980f9]/60",
     rows: 4,
     placeholder: "Contame en qu\xE9 te puedo acompa\xF1ar"
   }), /*#__PURE__*/React.createElement("div", {
@@ -495,7 +495,7 @@ function App() {
     className: "lazy-video w-full h-full object-cover relative z-0"
   }))))), /*#__PURE__*/React.createElement("section", {
     id: "agenda",
-    className: "py-8 md:py-16 lazy-bg",
+    className: "pt-24 md:pt-32 pb-8 md:pb-16 lazy-bg",
     "data-bg": ASSETS.cieloEspejo,
     style: {
       backgroundAttachment: 'fixed',
