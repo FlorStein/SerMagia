@@ -42,15 +42,18 @@ const ASSETS = {
 const SERVICIOS = [{
   title: "Tarot & Vinito",
   description: "Encuentros íntimos para compartir una lectura de Tarot acompañada de una copa de vino.",
-  bgImage: ASSETS.tarotyvino
+  bgImage: ASSETS.tarotyvino,
+  link: "#vinito"
 }, {
   title: "Pack",
   description: "Paquetes especiales para procesos y seguimientos con varios encuentros.",
-  bgImage: ASSETS.packImg
+  bgImage: ASSETS.packImg,
+  link: "#pack"
 }, {
   title: "Lecturas",
   description: "Lecturas individuales de Tarot enfocadas en claridad, dirección y bienestar.",
-  bgImage: ASSETS.cielo
+  bgImage: ASSETS.cielo,
+  link: "#lecturas"
 }];
 
 // Datos de pack
@@ -120,24 +123,30 @@ const AGENDA_EVENTOS = window.AGENDA_EVENTOS && window.AGENDA_EVENTOS.length ? w
 const ServiceCard = React.memo(({
   title,
   description,
-  bgImage
+  bgImage,
+  link
 }) => /*#__PURE__*/React.createElement("div", {
   className: "rounded-2xl overflow-hidden shadow-sm bg-center bg-cover text-white min-h-[420px] md:min-h-[520px]",
   style: {
     backgroundImage: `url(${bgImage})`
   }
 }, /*#__PURE__*/React.createElement("div", {
-  className: "bg-black/35 p-6 backdrop-blur-[1px] h-full"
+  className: "bg-black/35 p-6 backdrop-blur-[1px] h-full flex flex-col"
 }, /*#__PURE__*/React.createElement("h3", {
   className: "new-rocker-regular text-[1.56rem] mb-2"
 }, title), /*#__PURE__*/React.createElement("p", {
-  className: "text-white/90 text-[1.25rem]"
-}, description), /*#__PURE__*/React.createElement("a", {
+  className: "text-white/90 text-[1.25rem] mb-4 flex-grow"
+}, description), /*#__PURE__*/React.createElement("div", {
+  className: "flex gap-3"
+}, /*#__PURE__*/React.createElement("a", {
+  href: link,
+  className: "inline-block rounded-full bg-white/20 backdrop-blur text-white px-5 py-2 text-sm hover:bg-white/30 transition border border-white/40"
+}, "M\xE1s info"), /*#__PURE__*/React.createElement("a", {
   href: "https://wa.me/5491168040649",
   target: "_blank",
   rel: "noopener noreferrer",
-  className: "inline-block mt-4 rounded-full bg-[#5A32B5] text-white px-5 py-2 text-sm hover:opacity-90 transition"
-}, "Reservar"))));
+  className: "inline-block rounded-full bg-[#5A32B5] text-white px-5 py-2 text-sm hover:opacity-90 transition"
+}, "Reservar")))));
 
 // Componente memoizado para tarjeta de lectura
 const LecturaCard = React.memo(({
