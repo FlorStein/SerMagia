@@ -5,7 +5,7 @@ const links = [
   { href: "#vinito", label: "Vinito y Tarot" },
   { href: "#pack", label: "El Pack" },
   { href: "#lecturas", label: "Lecturas" },
-  { href: "#formacion", label: "Formación" },
+  { href: "#formacion", label: "Registros Akáshicos" },
   { href: "#agenda", label: "Agenda" },
   { href: "#contacto", label: "Turnos" },
 ];
@@ -357,15 +357,20 @@ function App(){
       <section id="pack" className="py-8 md:py-16 min-h-[100svh] flex items-center" style={{backgroundImage:`url(${ASSETS.manosLuna})`, backgroundSize:'cover', backgroundPosition:'center', backgroundAttachment:'fixed'}}>
         <div className="mx-auto max-w-6xl px-4">
           <div className="rounded-3xl bg-white/80 backdrop-blur p-6 md:p-10 shadow">
-            <h2 className="new-rocker-regular title-white glow-violet text-3xl mb-2">El Pack · Un viaje de autoconocimiento</h2>
-            <p className="text-sm text-[#d980f9]/80 mb-6 max-w-prose">Dirigido a almas inquietas que desean transformación positiva. Metodología en 5 componentes:</p>
-            <div className="grid md:grid-cols-5 gap-4 text-sm">
+            <h2 className="new-rocker-regular title-white glow-violet text-[2.25rem] md:text-[2.25rem] mb-4">El Pack · Un viaje de autoconocimiento</h2>
+            <p className="text-base md:text-lg text-[#d980f9]/80 mb-6 max-w-prose">Dirigido a almas inquietas que desean transformación positiva. Metodología en 5 componentes:</p>
+            <div className="grid md:grid-cols-5 gap-4 text-base mb-6">
               {PACK_COMPONENTS.map((k,i)=>(
                 <div key={i} className="rounded-2xl border bg-white p-4">
-                  <p className="font-medium mb-1">{k.n}</p>
-                  <p className="text-[#d980f9]/80">{k.d}</p>
+                  <p className="font-medium mb-1 text-base">{k.n}</p>
+                  <p className="text-[#d980f9]/80 text-sm">{k.d}</p>
                 </div>
               ))}
+            </div>
+            <div className="flex justify-center">
+              <a href="https://wa.me/5491168040649?text=Hola!%20quisiera%20un%20turno%20para%20%22el%20pack%22" className="rounded-full bg-[#8a0bd2] text-white px-6 py-3 text-base font-medium hover:bg-[#7209b3] transition-colors">
+                Solicitar turno para El Pack
+              </a>
             </div>
           </div>
         </div>
@@ -392,12 +397,12 @@ function App(){
   <section id="formacion" className="py-8 md:py-16 bg-black">
         <div className="mx-auto max-w-6xl px-4 grid md:grid-cols-2 gap-8 items-center">
           <div className="order-2 md:order-1">
-            <h2 className="new-rocker-regular title-white glow-violet text-7xl mb-3">Formación & Registros</h2>
+            <h2 className="new-rocker-regular title-white glow-violet text-7xl mb-3">Apertura de Registros Akáshicos.</h2>
             <ul className="text-sm space-y-3 text-[#d980f9]/80 list-disc pl-5">
               <li><span className="font-medium text-base">Formación de Tarot para la Evolución:</span> vivencial y práctica (Arcanos Mayores y Menores) para lecturas personales y a otrxs.</li>
               <li><span className="font-medium text-base">Iniciación en Registros Akáshicos – Nivel 1 y 2:</span> herramienta de sanación personal para acceder al archivo de tu Alma.</li>
             </ul>
-            <a href="#contacto" className="mt-5 inline-block rounded-full bg-[#8a0bd2] text-white px-5 py-3 text-sm">Quiero info</a>
+            <a href="https://wa.me/5491168040649?text=Hola,%20quiero%20un%20turno%20para%20abrir%20mis%20Registros%20Ak%C3%A1shicos" className="mt-5 inline-block rounded-full bg-[#8a0bd2] text-white px-5 py-3 text-sm">Reservar por WhatsApp</a>
           </div>
           <div className="order-1 md:order-2">
             <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-sm flex items-center justify-center bg-black/5 relative">

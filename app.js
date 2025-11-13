@@ -17,7 +17,7 @@ const links = [{
   label: "Lecturas"
 }, {
   href: "#formacion",
-  label: "Formación"
+  label: "Registros Akáshicos"
 }, {
   href: "#agenda",
   label: "Agenda"
@@ -77,7 +77,7 @@ const LECTURAS = [{
   d: `En este espacio mágico y creativo, te invito a sumergirte en un viaje profundo
 hacia tu árbol genealógico. Es un encuentro transformador donde
 exploraremos la poderosa información ancestral que reside en vos y que te
-permitirá modificar, transformar y sanar aspectos de tu vida.`,
+permitirá modificar, transformar y sanar aspectos de tu vida. Ideal para trabajar con los bloqueos, patrones de repetición o talón de Aquiles.`,
   precio: '$22.000',
   dur: '90 min'
 }, {
@@ -434,19 +434,24 @@ function App() {
   }, /*#__PURE__*/React.createElement("div", {
     className: "rounded-3xl bg-white/80 backdrop-blur p-6 md:p-10 shadow"
   }, /*#__PURE__*/React.createElement("h2", {
-    className: "new-rocker-regular title-white glow-violet text-3xl mb-2"
+    className: "new-rocker-regular title-white glow-violet text-[2.25rem] md:text-[2.25rem] mb-4"
   }, "El Pack \xB7 Un viaje de autoconocimiento"), /*#__PURE__*/React.createElement("p", {
-    className: "text-sm text-[#d980f9]/80 mb-6 max-w-prose"
-  }, "Dirigido a almas inquietas que desean transformaci\xF3n positiva. Metodolog\xEDa en 5 componentes:"), /*#__PURE__*/React.createElement("div", {
-    className: "grid md:grid-cols-5 gap-4 text-sm"
+    className: "text-base md:text-lg text-[#d980f9]/80 mb-6 max-w-prose"
+  }, "El pack es la combinación perfecta para que puedas alinearte con tu presente, sin olvidar de donde venís y sabiendo a donde querés ir."), /*#__PURE__*/React.createElement("div", {
+    className: "grid md:grid-cols-5 gap-4 text-base mb-6"
   }, PACK_COMPONENTS.map((k, i) => /*#__PURE__*/React.createElement("div", {
     key: i,
     className: "rounded-2xl border bg-white p-4"
   }, /*#__PURE__*/React.createElement("p", {
-    className: "font-medium mb-1"
+    className: "font-medium mb-1 text-base"
   }, k.n), /*#__PURE__*/React.createElement("p", {
-    className: "text-[#d980f9]/80"
-  }, k.d))))))), /*#__PURE__*/React.createElement("section", {
+    className: "text-[#d980f9]/80 text-sm"
+  }, k.d)))), /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-center"
+  }, /*#__PURE__*/React.createElement("a", {
+    href: "https://wa.me/5491168040649?text=Hola!%20quisiera%20un%20turno%20para%20%22el%20pack%22",
+    className: "rounded-full bg-[#8a0bd2] text-white px-6 py-3 text-base font-medium hover:bg-[#7209b3] transition-colors"
+  }, "Solicitar turno para El Pack"))))), /*#__PURE__*/React.createElement("section", {
     id: "lecturas",
     className: "py-8 md:py-16 min-h-[80svh] md:min-h-[100svh] flex items-center justify-center lazy-bg",
     "data-bg": ASSETS.lavandaCampo,
@@ -472,16 +477,16 @@ function App() {
     className: "order-2 md:order-1"
   }, /*#__PURE__*/React.createElement("h2", {
     className: "new-rocker-regular title-white glow-violet text-7xl mb-3"
-  }, "Formaci\xF3n & Registros"), /*#__PURE__*/React.createElement("ul", {
+  }, "Apertura de Registros Akáshicos"), /*#__PURE__*/React.createElement("ul", {
     className: "text-sm space-y-3 text-[#d980f9]/80 list-disc pl-5"
   }, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("span", {
     className: "font-medium text-base"
-  }, "Formaci\xF3n de Tarot para la Evoluci\xF3n:"), " vivencial y pr\xE1ctica (Arcanos Mayores y Menores) para lecturas personales y a otrxs."), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("span", {
+  }, "Apertura de Registros Akáshicos:"), " Canalización a través de tus guías y maestros. Acceder al Akasha es hacerte portador de la información de tu alma para sanar, conocerte y alivianar tu andar."), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("span", {
     className: "font-medium text-base"
-  }, "Iniciaci\xF3n en Registros Ak\xE1shicos \u2013 Nivel 1 y 2:"), " herramienta de sanaci\xF3n personal para acceder al archivo de tu Alma.")), /*#__PURE__*/React.createElement("a", {
-    href: "#contacto",
+  }, "Constelaciones Álmicas:"), " Es la fusión de la apertura de registros Akáshicos y las constelaciones familiares individuales. Dinámica conjunta con la Licenciada Lis Carolina Poch. Encuentro presencial de 60 minutos en Espacio Cuerpo y Alma, ubicado en Vicente López.")), /*#__PURE__*/React.createElement("a", {
+    href: "https://wa.me/5491168040649?text=Hola,%20quiero%20un%20turno%20para%20abrir%20mis%20Registros%20Ak%C3%A1shicos",
     className: "mt-5 inline-block rounded-full bg-[#8a0bd2] text-white px-5 py-3 text-sm"
-  }, "Quiero info")), /*#__PURE__*/React.createElement("div", {
+  }, "Reservar por WhatsApp")), /*#__PURE__*/React.createElement("div", {
     className: "order-1 md:order-2"
   }, /*#__PURE__*/React.createElement("div", {
     className: "aspect-[4/5] rounded-3xl overflow-hidden shadow-sm flex items-center justify-center bg-black/5 relative"
