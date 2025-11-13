@@ -87,7 +87,7 @@ const ServiceCard = React.memo(({ title, description, bgImage }) => (
       <h3 className="new-rocker-regular text-[1.56rem] mb-2">{title}</h3>
       <p className="text-white/90 text-[1.25rem]">{description}</p>
       <a 
-        href="https://wa.link/ylh91z" 
+        href="https://wa.me/5491168040649" 
         target="_blank" 
         rel="noopener noreferrer" 
         className="inline-block mt-4 rounded-full bg-[#5A32B5] text-white px-5 py-2 text-sm hover:opacity-90 transition"
@@ -107,7 +107,7 @@ const LecturaCard = React.memo(({ t, d, precio, dur }) => (
       <p className="text-xs md:text-sm text-[#350352]/80 font-semibold">{d}</p>
     </div>
     <p className="text-lg font-bold text-[#350352]/70 absolute left-4 bottom-4">{precio} · {dur}</p>
-    <a href="https://wa.link/ylh91z" className="rounded-full border px-4 py-2 text-sm absolute right-4 bottom-4 font-bold">
+    <a href="https://wa.me/5491168040649" className="rounded-full border px-4 py-2 text-sm absolute right-4 bottom-4 font-bold">
       Solicitar turnos
     </a>
   </article>
@@ -120,7 +120,7 @@ const EventoCard = React.memo(({ f, t, cupos }) => (
     <p className="new-rocker-regular title-white glow-violet text-xl">{t}</p>
     <p className="text-xs text-[#5c007d]/70 mb-4">{cupos}</p>
     <div className="flex gap-3">
-      <a href="https://wa.link/ylh91z" className="rounded-full bg-[#8a0bd2] text-white px-4 py-2 text-sm">Reservar</a>
+      <a href="https://wa.me/5491168040649" className="rounded-full bg-[#8a0bd2] text-white px-4 py-2 text-sm">Reservar</a>
       <a href="#contacto" className="rounded-full border px-4 py-2 text-sm">Consultar</a>
     </div>
   </div>
@@ -160,7 +160,7 @@ function Navbar() {
               {l.label}
             </a>
           ))}
-          <a href="https://wa.link/ylh91z" className="rounded-full bg-[#8a0bd2] text-white px-4 py-2 text-sm hover:opacity-90 transition">
+          <a href="https://wa.me/5491168040649" className="rounded-full bg-[#8a0bd2] text-white px-4 py-2 text-sm hover:opacity-90 transition">
             Reservar
           </a>
         </nav>
@@ -184,7 +184,7 @@ function Navbar() {
                 {l.label}
               </a>
             ))}
-            <a href="https://wa.link/ylh91z" className="rounded-full bg-[#8a0bd2] text-white px-4 py-2 text-center text-sm" onClick={closeMenu}>
+            <a href="https://wa.me/5491168040649" className="rounded-full bg-[#8a0bd2] text-white px-4 py-2 text-center text-sm" onClick={closeMenu}>
               Reservar por WhatsApp
             </a>
           </div>
@@ -250,7 +250,7 @@ function ContactForm(){
       />
       <div className="flex gap-3">
   <button type="submit" className="rounded-full bg-[#8a0bd2] text-white px-5 py-3 text-sm w-max">Enviar</button>
-        <a href="https://wa.link/ylh91z" className="rounded-full border px-5 py-3 text-sm">WhatsApp</a>
+        <a href="https://wa.me/5491168040649" className="rounded-full border px-5 py-3 text-sm">WhatsApp</a>
       </div>
     </form>
   );
@@ -277,17 +277,19 @@ function App(){
     <div className="min-h-screen">
       <Navbar/>
       {/* HERO: full viewport, background SVG, tarot card visible completa */}
-      <section id="inicio" className="pt-28 min-h-[100svh] relative" style={{backgroundImage:`url(${ASSETS.heroBg})`, backgroundSize:"cover", backgroundPosition:"center", backgroundAttachment:"fixed"}}>
-        <div className="mx-auto max-w-6xl px-4 grid md:grid-cols-2 gap-10 items-center">
-          <div id="hero111" className="rounded-3xl bg-[#5A32B5]/20 backdrop-blur-2xl border border-[#5A32B5]/20 p-6 md:p-10 shadow-xl">
-            <p className="uppercase tracking-[0.25em] text-xs text-[#d980f9] mb-4">Tarot · Akasha · Sanación</p>
-            <h1 className="new-rocker-regular title-white glow-violet text-4xl md:text-5xl leading-tight mb-6">
+      <section id="inicio" className="pt-20 min-h-[100svh] relative flex items-center" style={{backgroundImage:`url(${ASSETS.heroBg})`, backgroundSize:"cover", backgroundPosition:"center", backgroundAttachment:"fixed"}}>
+        <div className="mx-auto max-w-6xl px-4 grid md:grid-cols-2 gap-10 items-center w-full">
+          <div id="hero111" className="rounded-3xl bg-[#5A32B5]/20 backdrop-blur-2xl border border-[#5A32B5]/20 p-5 md:p-7 shadow-xl">
+            <p className="uppercase tracking-[0.25em] text-xs text-[#d980f9] mb-3">Tarot · Akasha · Sanación</p>
+            <h1 className="new-rocker-regular title-white glow-violet text-3xl md:text-4xl leading-tight mb-4">
               Acompañamiento amoroso para tu <span className="text-[#d980f9]">autoconocimiento</span>
             </h1>
-            <p className="mb-5 text-white font-bold">Tarotista y Ser en eterna búsqueda y construcción. Hace más de siete años que acompaño procesos de sanación y auto-descubrimiento a través del Tarot y los Registros Akáshicos.</p>
+            <p className="mb-3 text-white font-bold leading-relaxed text-sm md:text-base">Soy Mica Frachi, tarotista y Ser en eterna búsqueda y construcción. Hace más de siete años que acompaño procesos de sanación y autoconocimiento a través del Tarot, los Registros Akáshicos y otras mancias.</p>
+            <p className="mb-3 text-white leading-relaxed text-sm md:text-base">Si bien no me gustan las etiquetas y los rótulos, trabajo hace muchos años con herramientas que me permiten ser guía en tu camino. No existen las recetas que apliquen a todos los seres humanos. No utilizo la misma dinámica para vos que para otrx. No recorto, moldeo, o aprieto tu proceso para que encaje con el de nadie más. Por eso, si elegís fusionar tu energía con la mía vamos a crear tu propio método, uno que sea transpersonal, revolucionario y te regale tu mejor versión.</p>
+            <p className="mb-4 text-white font-bold italic text-sm md:text-base">Te espero del otro lado de la decisión.</p>
             <div className="flex flex-wrap gap-3">
               <a href="#servicios" className="rounded-full bg-[#8a0bd2] text-white px-5 py-3 text-sm">Ver servicios</a>
-              <a href="https://wa.link/ylh91z" className="rounded-full border border-[#d980f9] text-[#d980f9] px-5 py-3 text-sm">Solicitar turnos</a>
+              <a href="https://wa.me/5491168040649" className="rounded-full border border-[#d980f9] text-[#d980f9] px-5 py-3 text-sm">Solicitar turnos</a>
             </div>
           </div>
           <div className="relative">
@@ -344,7 +346,7 @@ function App(){
               <li>A domicilio 2: hasta 30 personas. Incluye vino, juegos y sesión para la/el anfitrión.</li>
             </ul>
             <div className="mt-5 flex gap-3">
-              <a href="https://wa.link/ylh91z" className="rounded-full bg-[#d980f9] text-[#3d1a66] font-semibold px-5 py-3 text-sm hover:opacity-90 transition">Quiero sumarme</a>
+              <a href="https://wa.me/5491168040649" className="rounded-full bg-[#d980f9] text-[#3d1a66] font-semibold px-5 py-3 text-sm hover:opacity-90 transition">Quiero sumarme</a>
               <a href="#contacto" className="rounded-full border border-[#d980f9] text-[#d980f9] px-5 py-3 text-sm hover:bg-[#d980f9] hover:text-[#3d1a66] transition">Consultar disponibilidad</a>
             </div>
           </div>
@@ -442,7 +444,7 @@ function App(){
             <h2 className="new-rocker-regular title-white glow-violet text-3xl mb-2">Turnos & Contacto</h2>
             <p className="text-[#5c007d]/80 mb-4">Todos los servicios requieren seña para reservar; no reembolsable ante cancelación.</p>
             <div className="flex flex-wrap gap-3 mb-6">
-              <a href="https://wa.link/ylh91z" className="rounded-full bg-[#8a0bd2] text-white px-5 py-3 text-sm">Reservar por WhatsApp</a>
+              <a href="https://wa.me/5491168040649" className="rounded-full bg-[#8a0bd2] text-white px-5 py-3 text-sm">Reservar por WhatsApp</a>
               <a href="mailto:hola@sermagia.tarot" className="rounded-full border px-5 py-3 text-sm">Escribirme por mail</a>
             </div>
             <ContactForm/>

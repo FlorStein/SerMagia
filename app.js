@@ -133,7 +133,7 @@ const ServiceCard = React.memo(({
 }, title), /*#__PURE__*/React.createElement("p", {
   className: "text-white/90 text-[1.25rem]"
 }, description), /*#__PURE__*/React.createElement("a", {
-  href: "https://wa.link/ylh91z",
+  href: "https://wa.me/5491168040649",
   target: "_blank",
   rel: "noopener noreferrer",
   className: "inline-block mt-4 rounded-full bg-[#5A32B5] text-white px-5 py-2 text-sm hover:opacity-90 transition"
@@ -158,7 +158,7 @@ const LecturaCard = React.memo(({
 }, d)), /*#__PURE__*/React.createElement("p", {
   className: "text-lg font-bold text-[#350352]/70 absolute left-4 bottom-4"
 }, precio, " \xB7 ", dur), /*#__PURE__*/React.createElement("a", {
-  href: "https://wa.link/ylh91z",
+  href: "https://wa.me/5491168040649",
   className: "rounded-full border px-4 py-2 text-sm absolute right-4 bottom-4 font-bold"
 }, "Solicitar turnos")));
 
@@ -178,7 +178,7 @@ const EventoCard = React.memo(({
 }, cupos), /*#__PURE__*/React.createElement("div", {
   className: "flex gap-3"
 }, /*#__PURE__*/React.createElement("a", {
-  href: "https://wa.link/ylh91z",
+  href: "https://wa.me/5491168040649",
   className: "rounded-full bg-[#8a0bd2] text-white px-4 py-2 text-sm"
 }, "Reservar"), /*#__PURE__*/React.createElement("a", {
   href: "#contacto",
@@ -220,7 +220,7 @@ function Navbar() {
     href: l.href,
     className: "text-sm hover:text-[#d980f9] transition"
   }, l.label)), /*#__PURE__*/React.createElement("a", {
-    href: "https://wa.link/ylh91z",
+    href: "https://wa.me/5491168040649",
     className: "rounded-full bg-[#8a0bd2] text-white px-4 py-2 text-sm hover:opacity-90 transition"
   }, "Reservar")), /*#__PURE__*/React.createElement("button", {
     "aria-label": "Abrir men\xFA",
@@ -244,7 +244,7 @@ function Navbar() {
     className: "py-2 text-sm",
     onClick: closeMenu
   }, l.label)), /*#__PURE__*/React.createElement("a", {
-    href: "https://wa.link/ylh91z",
+    href: "https://wa.me/5491168040649",
     className: "rounded-full bg-[#8a0bd2] text-white px-4 py-2 text-center text-sm",
     onClick: closeMenu
   }, "Reservar por WhatsApp"))));
@@ -309,7 +309,7 @@ function ContactForm() {
     type: "submit",
     className: "rounded-full bg-[#8a0bd2] text-white px-5 py-3 text-sm w-max"
   }, "Enviar"), /*#__PURE__*/React.createElement("a", {
-    href: "https://wa.link/ylh91z",
+    href: "https://wa.me/5491168040649",
     className: "rounded-full border px-5 py-3 text-sm"
   }, "WhatsApp")));
 }
@@ -329,7 +329,7 @@ function App() {
     className: "min-h-screen"
   }, /*#__PURE__*/React.createElement(Navbar, null), /*#__PURE__*/React.createElement("section", {
     id: "inicio",
-    className: "pt-28 min-h-[100svh] relative",
+    className: "pt-20 min-h-[100svh] relative flex items-center",
     style: {
       backgroundImage: `url(${ASSETS.heroBg})`,
       backgroundSize: "cover",
@@ -337,25 +337,29 @@ function App() {
       backgroundAttachment: "fixed"
     }
   }, /*#__PURE__*/React.createElement("div", {
-    className: "mx-auto max-w-6xl px-4 grid md:grid-cols-2 gap-10 items-center"
+    className: "mx-auto max-w-6xl px-4 grid md:grid-cols-2 gap-10 items-center w-full"
   }, /*#__PURE__*/React.createElement("div", {
     id: "hero111",
-    className: "rounded-3xl bg-[#5A32B5]/20 backdrop-blur-2xl border border-[#5A32B5]/20 p-6 md:p-10 shadow-xl"
+    className: "rounded-3xl bg-[#5A32B5]/20 backdrop-blur-2xl border border-[#5A32B5]/20 p-5 md:p-7 shadow-xl"
   }, /*#__PURE__*/React.createElement("p", {
-    className: "uppercase tracking-[0.25em] text-xs text-[#d980f9] mb-4"
+    className: "uppercase tracking-[0.25em] text-xs text-[#d980f9] mb-3"
   }, "Tarot \xB7 Akasha \xB7 Sanaci\xF3n"), /*#__PURE__*/React.createElement("h1", {
-    className: "new-rocker-regular title-white glow-violet text-4xl md:text-5xl leading-tight mb-6"
-  }, "Acompa\xF1amiento amoroso para tu ", /*#__PURE__*/React.createElement("span", {
+    className: "new-rocker-regular title-white glow-violet text-3xl md:text-4xl leading-tight mb-4"
+  }, "Acompa\xF1amiento integral para tu ", /*#__PURE__*/React.createElement("span", {
     className: "text-[#d980f9]"
   }, "autoconocimiento")), /*#__PURE__*/React.createElement("p", {
-    className: "mb-5 text-white font-bold"
-  }, "Tarotista y Ser en eterna b\xFAsqueda y construcci\xF3n. Hace m\xE1s de siete a\xF1os que acompa\xF1o procesos de sanaci\xF3n y auto-descubrimiento a trav\xE9s del Tarot y los Registros Ak\xE1shicos."), /*#__PURE__*/React.createElement("div", {
+    className: "mb-3 text-white font-bold leading-relaxed text-sm md:text-base"
+  }, "Soy Mica Frachi, tarotista y Ser en eterna b\xFAsqueda y construcci\xF3n. Hace m\xE1s de siete a\xF1os que acompa\xF1o procesos de sanaci\xF3n y autoconocimiento a trav\xE9s del Tarot, los Registros Ak\xE1shicos y otras mancias."), /*#__PURE__*/React.createElement("p", {
+    className: "mb-3 text-white leading-relaxed text-sm md:text-base"
+  }, "Si bien no me gustan las etiquetas y los r\xF3tulos, trabajo hace muchos a\xF1os con herramientas que me permiten ser gu\xEDa en tu camino. No existen las recetas que apliquen a todos los seres humanos. No utilizo la misma din\xE1mica para vos que para otrx. No recorto, moldeo, o aprieto tu proceso para que encaje con el de nadie m\xE1s. Por eso, si eleg\xEDs fusionar tu energ\xEDa con la m\xEDa vamos a crear tu propio m\xE9todo, uno que sea transpersonal, revolucionario y te regale tu mejor versi\xF3n."), /*#__PURE__*/React.createElement("p", {
+    className: "mb-4 text-white font-bold italic text-sm md:text-base"
+  }, "Te espero del otro lado de la decisi\xF3n."), /*#__PURE__*/React.createElement("div", {
     className: "flex flex-wrap gap-3"
   }, /*#__PURE__*/React.createElement("a", {
     href: "#servicios",
     className: "rounded-full bg-[#8a0bd2] text-white px-5 py-3 text-sm"
   }, "Ver servicios"), /*#__PURE__*/React.createElement("a", {
-    href: "https://wa.link/ylh91z",
+    href: "https://wa.me/5491168040649",
     className: "rounded-full border border-[#d980f9] text-[#d980f9] px-5 py-3 text-sm"
   }, "Solicitar turnos"))), /*#__PURE__*/React.createElement("div", {
     className: "relative"
@@ -372,7 +376,7 @@ function App() {
     className: " bg-[#3d1a66] text-[#000] p-6 md:p-10 text-center aura-effect"
   }, /*#__PURE__*/React.createElement("p", {
     className: "new-rocker-regular title-white glow-violet text-3xl md:text-5xl"
-  }, "\"Tra\xE9 ternura a tu cuerpo. Todo empieza en tu respiraci\xF3n.\"")))), /*#__PURE__*/React.createElement("section", {
+  }, "\"Tra\xE9 conciencia a tu cuerpo. Todo empieza con tu compromiso.\"")))), /*#__PURE__*/React.createElement("section", {
     id: "servicios",
     className: "py-12 md:py-20",
     style: {
@@ -406,12 +410,12 @@ function App() {
     className: "new-rocker-regular title-white glow-violet text-3xl md:text-4xl mb-3"
   }, "Vinito y Tarot"), /*#__PURE__*/React.createElement("p", {
     className: "text-white mb-4 text-lg md:text-xl"
-  }, "Bloque de 2h30 para sumergirte en el Tarot a trav\xE9s de din\xE1micas l\xFAdicas, risas y vino."), /*#__PURE__*/React.createElement("ul", {
+  }, "Encuentro lúdico-vivencial para atender todos tus sentimientos. Hicimos de la dupla Vinito y Tarot el mejor acompañamiento para una noche única. Las risas, el Malbec, la empatía y la resonancia de la red; juegan un papel fundamental en el evento que logró que hable el alma y el corazón antes que la mente y la razón."), /*#__PURE__*/React.createElement("ul", {
     className: "text-base md:text-lg space-y-2 text-white list-disc pl-5"
   }, /*#__PURE__*/React.createElement("li", null, "Presencial (10 a 22 personas)."), /*#__PURE__*/React.createElement("li", null, "A domicilio 1: hasta 15 personas. Incluye vino, juegos y sobre de cartas + lectura por WhatsApp."), /*#__PURE__*/React.createElement("li", null, "A domicilio 2: hasta 30 personas. Incluye vino, juegos y sesi\xF3n para la/el anfitri\xF3n.")), /*#__PURE__*/React.createElement("div", {
     className: "mt-5 flex gap-3"
   }, /*#__PURE__*/React.createElement("a", {
-    href: "https://wa.link/ylh91z",
+    href: "https://wa.me/5491168040649",
     className: "rounded-full bg-[#d980f9] text-[#3d1a66] font-semibold px-5 py-3 text-sm hover:opacity-90 transition"
   }, "Quiero sumarme"), /*#__PURE__*/React.createElement("a", {
     href: "#contacto",
@@ -530,7 +534,7 @@ function App() {
   }, "Todos los servicios requieren se\xF1a para reservar; no reembolsable ante cancelaci\xF3n."), /*#__PURE__*/React.createElement("div", {
     className: "flex flex-wrap gap-3 mb-6"
   }, /*#__PURE__*/React.createElement("a", {
-    href: "https://wa.link/ylh91z",
+    href: "https://wa.me/5491168040649",
     className: "rounded-full bg-[#8a0bd2] text-white px-5 py-3 text-sm"
   }, "Reservar por WhatsApp"), /*#__PURE__*/React.createElement("a", {
     href: "mailto:hola@sermagia.tarot",

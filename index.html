@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://unpkg.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
     
     <!-- Preload critical scripts para reducir render blocking -->
     <link rel="preload" href="https://unpkg.com/react@18/umd/react.production.min.js" as="script" crossorigin>
@@ -41,26 +42,21 @@
 
       /* Clase existente para texto con New Rocker */
       .new-rocker-regular {
-        font-family: "New Rocker", system-ui, cursive;
-        font-weight: 400;
+        font-family: "Merienda", system-ui, cursive;
+        font-weight: 700;
         font-style: normal;
       }
 
-      /* Aplicar New Rocker a todos los títulos por defecto */
+      /* Aplicar Merienda a todos los títulos por defecto */
       h1, h2, h3, h4, h5, h6 {
-        font-family: "New Rocker", system-ui, cursive;
-        font-weight: 400;
+        font-family: "Merienda", system-ui, cursive;
+        font-weight: 700;
         margin: 0;
       }
 
       /* Blanco + brillo violeta para títulos */
       .title-white { color:#fff !important; }
-      .glow-violet { animation: violetGlow 2.2s ease-in-out infinite; }
-      @keyframes violetGlow {
-        0%   { text-shadow:0 0 0 rgba(90,50,181,0); }
-        50%  { text-shadow:0 0 18px rgb(89, 50, 181); }
-        100% { text-shadow:0 0 0 rgba(90,50,181,0); }
-      }
+      .glow-violet { text-shadow: 0 0 18px rgba(89, 50, 181, 0.8), 0 0 8px rgba(138, 11, 210, 0.6); }
 
     
       /* Fade-in para elementos al entrar en viewport */
